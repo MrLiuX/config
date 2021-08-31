@@ -1,0 +1,86 @@
+set number 
+set relativenumber
+set nocompatible "关闭对vi的兼容性设置
+syntax on
+set encoding=utf-8
+set tabstop=4 " 设置tab缩进为4
+set shiftwidth=4 " 设置默认缩进为4
+set wrap " 自动折行
+set linebreak " 折行时不会拆开单词等
+set wrapmargin=8 " 折行处与窗口左侧的间距
+set scrolloff=10 " 垂直滚动时，光标距离窗口底部的距离
+colorscheme xcodewwdc
+set autoread
+
+"set cursorline
+"highlight CursorLine ctermbg=darkgrey
+
+autocmd BufWritePost $MYVIMRC source $MYVIMRC 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+call plug#begin('~/.vim/plugged')
+Plug 'SirVer/ultisnips'
+Plug 'preservim/nerdtree'
+Plug 'jayli/vim-easycomplete'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+Plug 'airblade/vim-gitgutter'
+Plug 'mg979/vim-xtabline'
+Plug 'dhruvasagar/vim-table-mode'
+Plug 'mhinz/vim-startify'
+"Plug 'vim-airline/vim-airline'
+Plug 'tpope/vim-commentary'
+Plug 'yianwillis/vimcdoc'
+Plug 'ryanoasis/vim-devicons'
+Plug 'arzg/vim-colors-xcode'
+"Plug 'vim-airline/vim-airline-themes'
+Plug 'skywind3000/asyncrun.vim'
+call plug#end()
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"UltiSnips
+let g:UltiSnipsExpandTrigger="<tab>"
+" 使用tab 切换下一个触发点，shit+tab 上一个触发点
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<S-tab>"
+" 使用 UltiSnipsEdit 命令时垂直分割屏幕
+let g:UltiSnipsEditSplit="vertical"
+
+"AsyncRun
+:let g:asyncrun_open = 8
+
+
+"let g:airline#extensions#tabline#enabled = 1
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let mapleader=" "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"编辑
+
+inoremap jj <Esc>
+inoremap <C-o> <Esc>o
+inoremap <C-j> <Esc>lji
+inoremap <C-h> <Esc>lhi
+inoremap <C-l> <Esc>2li
+inoremap <C-k> <Esc>lki
+inoremap <C-a> <Esc>A
+inoremap <C-i> <Esc>^i
+inoremap ( ()<Esc>i
+inoremap [ []<Esc>i
+inoremap " ""<Esc>i
+"inoremap { {}<Esc>i<CR><Esc>O
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nnoremap ; :
+nnoremap J 5j
+nnoremap K 5k
+nnoremap H ^
+nnoremap L $
+nnoremap z dh
+cnoremap qq q!
+
+nnoremap <LEADER>tn :tabnext<CR>
+nnoremap <LEADER>ta :tabnew<CR>
+nnoremap <LEADER>th :tabfirst<CR>
+nnoremap <LEADER>e :NERDTreeFocus<CR>
+nnoremap <LEADER>w <C-w>

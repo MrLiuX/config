@@ -1,0 +1,77 @@
+#-------------------------------------------------------------------------------#
+global !p
+def createTablePlaceholders(snip):
+	# Create anonymous snippet body
+	anon_snippet_body = ""
+
+	# Get start and end line number of expanded snippet
+	start = snip.snippet_start[0]
+	end = snip.snippet_end[0]
+
+  # Append current line into anonymous snippet
+	for i in range(start, end + 1):
+		anon_snippet_body += snip.buffer[i]
+		anon_snippet_body += "" if i == end else "\n"
+
+	# Delete expanded snippet line till second to last line
+	for i in range(start, end):
+		del snip.buffer[start]
+
+	# Empty last expanded snippet line while preserving the line
+	snip.buffer[start] = ''
+
+	# Expand anonymous snippet
+	snip.expand_anon(anon_snippet_body)
+
+def createTable(cols, rows, sep, start, end):
+	res = ""
+	placeholder = 1
+	for _ in range(0,int(cols)):
+		res+=sep + f"${placeholder}"
+		placeholder +=1
+	res+=sep+"\n"
+	for _ in range(0,int(cols)):
+		res+=sep+"-"
+	res+="|\n"
+	for _ in range(0, int(rows)):
+		res += start + f"${placeholder}"
+		placeholder += 1
+		for _ in range(0, int(cols) - 1):
+			res += sep + f"${placeholder}"
+			placeholder += 1
+		res += end
+	return res[:-1]
+endglobal
+#-------------------------------------------------------------------------------#
+post_jump "createTablePlaceholders(snip)"
+snippet 'tb(\d+),(\d+)' "markdown table" br
+`!p
+snip.rv = createTable(match.group(1), match.group(2), "|", "|", "|\n")
+`$0
+endsnippet
+#-------------------------------------------------------------------------------#
+snippet code "" b
+\`\`\`$1
+\`\`\`
+endsnippet
+#-------------------------------------------------------------------------------#
+snippet hexo "A leetcode snip in Hexo" b
+---
+title: $1
+tags:
+  - $2
+categories: $3
+description: $4
+top_img: ${5:false}
+cover: ${6:'http://image.mrliux.com/leetcode_.png'}
+date: `date +%F` `date +%T`
+---
+
+[LeetCode链接 🔗]($7)
+$8
+endsnippet
+#-------------------------------------------------------------------------------#
+snippet link "Expand markdown's link format" w
+[$1]($2)
+endsnippet
+#-------------------------------------------------------------------------------#

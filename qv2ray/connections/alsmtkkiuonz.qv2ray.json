@@ -1,0 +1,25 @@
+{
+    "outbounds": [
+        {
+            "mux": {
+            },
+            "protocol": "shadowsocksr",
+            "sendThrough": "0.0.0.0",
+            "settings": {
+                "address": "bai7oobe.nodeinfo.icu",
+                "group": "海豚湾",
+                "method": "aes-256-cfb",
+                "obfs": "tls1.2_ticket_auth",
+                "obfs_param": "18e72150868.www.gov.hk",
+                "password": "di15PV",
+                "port": 2106,
+                "protocol": "auth_aes128_md5",
+                "protocol_param": "150868:Wav4KV",
+                "remarks": "Lil 香港06 - nf&tvb | IEPL | 倍率:1.5"
+            },
+            "streamSettings": {
+            },
+            "tag": "outBound_PROXY"
+        }
+    ]
+}

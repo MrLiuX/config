@@ -1,0 +1,12 @@
+feh --bg-scale ~/Image/background/wallhaven-rddgwm.jpg
+qv2ray &
+compton & 
+fcitx5 &
+
+
+while true; do
+	xsetroot -name " [$(acpi | grep 0: | awk '{print $3}' | tr -d ',' | sed 's/Charging/⚡/' | sed 's/Unknown/⚡/' |  sed 's/Discharging//' | sed 's/Full/⚡/')$( acpi | grep 0: | awk '{print $4}' | tr -d ',')]  $(date +"%B %dth %a %R") "
+	sleep 1m
+done &
+
+exec dwm
