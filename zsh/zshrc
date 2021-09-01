@@ -21,6 +21,9 @@ alias f="wd"
 alias sshmrliux="ssh mrliux@mrliux.com"
 alias comk="setxkbmap us -variant colemak"
 alias cat='bat -n'
+alias pon="export all_proxy='socks5://127.0.0.1:1089'"
+alias poff='unset all_proxy'
+
 
 ##########################################################
 
