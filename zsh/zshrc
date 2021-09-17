@@ -13,7 +13,7 @@ alias vi="vim"
 alias lt="xbacklight -set"
 alias ie='chromium --proxy-server="socks5://127.0.0.1:1089"'
 alias makeci="sudo make clean install"
-alias c="clear"
+alias c="clear;neofetch"
 alias chmodx="chmod +x"
 alias ff="source ~/.zshrc ;clear"
 alias n="neofetch"

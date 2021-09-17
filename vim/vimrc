@@ -49,7 +49,7 @@ let g:UltiSnipsEditSplit="vertical"
 :let g:asyncrun_open = 8
 
 
-"let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#enabled = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let mapleader=" "
@@ -82,5 +82,11 @@ cnoremap qq q!
 nnoremap <LEADER>tn :tabnext<CR>
 nnoremap <LEADER>ta :tabnew<CR>
 nnoremap <LEADER>th :tabfirst<CR>
+nnoremap <LEADER>te :tabedit 
 nnoremap <LEADER>e :NERDTreeFocus<CR>
-nnoremap <LEADER>w <C-w>
+nnoremap <LEADER>fwq :wq<CR>
+nnoremap <LEADER>fq :q<CR>
+nnoremap <LEADER>fs :sp<CR>
+nnoremap <LEADER>fv :vsp<CR>
+nnoremap <LEADER>fe :e 
+nnoremap <LEADER>w <C-w><C-w>
