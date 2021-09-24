@@ -9,8 +9,13 @@ set wrap " 自动折行
 set linebreak " 折行时不会拆开单词等
 set wrapmargin=8 " 折行处与窗口左侧的间距
 set scrolloff=10 " 垂直滚动时，光标距离窗口底部的距离
-colorscheme xcodewwdc
+set background=dark
+"set termguicolors
+colorscheme quantum
+"colorscheme xcodewwdc
 set autoread
+set laststatus=2
+set noshowmode
 
 "set cursorline
 "highlight CursorLine ctermbg=darkgrey
@@ -23,17 +28,23 @@ Plug 'SirVer/ultisnips'
 Plug 'preservim/nerdtree'
 Plug 'jayli/vim-easycomplete'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
-Plug 'airblade/vim-gitgutter'
-Plug 'mg979/vim-xtabline'
+"Plug 'airblade/vim-gitgutter'
+"Plug 'mg979/vim-xtabline'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'mhinz/vim-startify'
 "Plug 'vim-airline/vim-airline'
+"Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-commentary'
 Plug 'yianwillis/vimcdoc'
 Plug 'ryanoasis/vim-devicons'
 Plug 'arzg/vim-colors-xcode'
 "Plug 'vim-airline/vim-airline-themes'
+Plug 'preservim/tagbar'
 Plug 'skywind3000/asyncrun.vim'
+Plug 'vim-scripts/taglist.vim'
+Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
+Plug 'francoiscabrol/ranger.vim'
+Plug 'tyrannicaltoucan/vim-quantum'
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -50,6 +61,7 @@ let g:UltiSnipsEditSplit="vertical"
 
 
 let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let mapleader=" "
